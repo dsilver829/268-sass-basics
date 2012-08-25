@@ -1,3 +1,11 @@
+$main-color: #1E7B12;
+
+@mixin rounded-corners($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,10 +15,10 @@ body {
 }
 
 #header {
-  background-color: #03507B;
+  background-color: $main-color;
   color: #FFF;
   padding: 4px 100px;
-  border-bottom: solid 5px #00395A;
+  border-bottom: solid 5px darken($main-color, 10%);
 
   h1 {
     font-size: 30px;
@@ -18,7 +26,7 @@ body {
 }
 
 a {
-  color: #03507B;
+  color: $main-color;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -26,14 +34,12 @@ a {
 }
 
 .new_project {
-  background-color: #03507B;
+  background-color: $main-color;
   color: #FFF;
   padding: 5px 12px;
   margin: 10px 0;
   font-size: 16px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  @include rounded-corners(5px);
 }
 
 #container {
@@ -44,9 +50,7 @@ a {
   border: solid 1px #777;
   margin: 20px 0;
   padding: 7px 12px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  @include rounded-corners(10px);
 }
 
 .project h2 {
